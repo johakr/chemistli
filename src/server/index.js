@@ -1,7 +1,13 @@
 const express = require('express');
-const path = require('path');
 const helmet = require('helmet');
-const elements = require('./elements.json');
+const fs = require('fs');
+import render from 'preact-render-to-string';
+import { h } from 'preact';
+import App from '../app/components/app.js';
+import elements from './elements';
+
+const template = fs.readFileSync('./public/index.html', "utf8").split('<body>');
+template[0] = `${template[0]}<body>`;
 
 const app = express();
 
@@ -54,8 +60,6 @@ const find = (word) => {
   }
 }
 
-app.use(express.static(path.join(__dirname, '../dist')));
-
 app.get('/c/:word', (req, res) => {
   const elements = find(req.params.word);
 
@@ -64,9 +68,18 @@ app.get('/c/:word', (req, res) => {
   return res.json({ success: false, elements: [] });
 });
 
-app.get('/q/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+app.get('/', (req, res) => {
+  let html = render(<App />);
+
+  res.send(`${template[0]}${html}${template[1]}`)
 });
+
+app.get('/q/*', (req, res) => {
+  let html = ''; // TODO
+  res.send(`${template[0]}${html}${template[1]}`)
+});
+
+app.use(express.static('./public'));
 
 app.listen(3006, () => {
   console.log('Example app listening on port 3006!');

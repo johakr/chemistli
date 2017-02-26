@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+/** @jsx h */
 import { route } from 'preact-router';
 import Element from './element';
 

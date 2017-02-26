@@ -6,9 +6,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/polyfill.js', './src/index.js', './scss/index.scss'],
+  entry: ['./src/app/polyfill.js', './src/app/index.js', './scss/index.scss'],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: './public',
     filename: 'bundle.js',
     publicPath: '/',
   },
@@ -18,13 +18,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        query: {
-          presets: ['latest', 'stage-0'],
-          'plugins': [
-            ['transform-decorators-legacy'],
-            ['transform-react-jsx', { 'pragma': 'h' }],
-          ],
-        },
       },
       {
         test: /\.s?css$/,

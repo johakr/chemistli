@@ -1,4 +1,4 @@
-[
+const elements = [
  {
    "no": 89,
    "symbol": "Ac",
@@ -589,4 +589,6 @@
    "symbol": "Zr",
    "name": "Zirconium"
  }
-]
+];
+
+export default elements;
