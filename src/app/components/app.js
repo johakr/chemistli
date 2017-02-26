@@ -10,7 +10,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<div id="app">
-				<Router onChange={this.handleRoute}>
+				<Router onChange={this.handleRoute} url={this.props.url || ''}>
 					<Home path="/q/:query" default />
 				</Router>
 			</div>

@@ -74,8 +74,8 @@ app.get('/', (req, res) => {
   res.send(`${template[0]}${html}${template[1]}`)
 });
 
-app.get('/q/*', (req, res) => {
-  let html = ''; // TODO
+app.get('/q/:phrase', (req, res) => {
+  let html = render(<App url={`/q/${req.params.phrase}`} />);
   res.send(`${template[0]}${html}${template[1]}`)
 });
 

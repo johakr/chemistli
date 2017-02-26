@@ -1,13 +1,14 @@
 import { h, Component } from 'preact';
 /** @jsx h */
 import { route } from 'preact-router';
+import fetch from 'isomorphic-fetch';
 import Element from './element';
 
 export default class Home extends Component {
   load = (word) => {
     this.setState({ submitted: true, success: null })
 
-    return fetch(`/c/${word}`)
+    return fetch(`http://localhost:3006/c/${word}`)
       .then(res => res.json())
       .then((json) => {
         if(json.success) {
@@ -39,7 +40,12 @@ export default class Home extends Component {
   componentWillMount() {
     if (this.props.query) {
       this.state.phrase = this.props.query;
-      this.load(this.state.phrase);
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.query) {
+      return this.load(this.state.phrase);
     }
   }
 

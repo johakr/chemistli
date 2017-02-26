@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/app/polyfill.js', './src/app/index.js', './scss/index.scss'],
+  entry: ['./src/app/index.js', './scss/index.scss'],
   output: {
     path: './public',
     filename: 'bundle.js',
