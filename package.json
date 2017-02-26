@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack",
+    "build": "node ./node_modules/webpack/bin/webpack",
     "dev": "concurrently \"nodemon --watch ./server ./server/index.js\" \"webpack --watch\" "
   },
   "author": "",
