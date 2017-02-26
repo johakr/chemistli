@@ -8,7 +8,7 @@ export default class Home extends Component {
   load = (word) => {
     this.setState({ submitted: true, success: null })
 
-    return fetch(`http://localhost:3006/c/${word}`)
+    return fetch(`/c/${word}`)
       .then(res => res.json())
       .then((json) => {
         if(json.success) {
