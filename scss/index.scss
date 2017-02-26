@@ -1,0 +1,54 @@
+@import '~milligram/dist/milligram.min.css';
+
+#elements {
+  display: flex;
+  flex: 1 1 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .element {
+    height: 10rem;
+    flex: 0 1 10rem;
+    margin: .5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: .5rem;
+    background-color: #9b4dca;
+    color: #fff;
+    border: 0.1rem solid #9b4dca;
+    transition: all 200ms ease;
+
+    &:hover {
+      //border-color: rgba(0,0,0,0.1);
+      transform: scale(1.5,1.5);
+      z-index: 1;
+
+      background-color: rgba(0, 128, 128, 0.9);
+    }
+
+    .no {
+      margin-left: auto;
+      font-size: 1.5rem;
+    }
+
+    .symbol {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .name {
+      margin-top: auto;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.not-found {
+  font-size: 20rem;
+  font-weight: 400;
+}
