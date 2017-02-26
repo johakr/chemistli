@@ -2,15 +2,19 @@
   "name": "chemistli",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server/index.js",
   "scripts": {
     "start": "npm run build && node ./dist/server/index.js",
     "build": "concurrently \"node ./node_modules/webpack/bin/webpack\" && babel ./src -d ./dist",
     "dev-server": "nodemon --watch ./src --exec \"babel-node ./src/server/index.js\"",
     "dev": "concurrently \"npm run dev-server\" \"webpack --watch\" "
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Johannes Kronmüller <Johannes.Kronmueller@gmail.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johakr/chemistli"
+  },
   "dependencies": {
     "es6-promise": "^4.0.5",
     "express": "^4.14.1",
