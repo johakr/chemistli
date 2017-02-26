@@ -11,7 +11,7 @@ export default class App extends Component {
 		return (
 			<div id="app">
 				<Router onChange={this.handleRoute}>
-					<Home path="/q/:query" />
+					<Home path="/q/:query" default />
 				</Router>
 			</div>
 		);
