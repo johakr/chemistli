@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
   entry: ['./src/polyfill.js', './src/index.js', './scss/index.scss'],
@@ -10,7 +13,7 @@ module.exports = {
     publicPath: '/',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -25,13 +28,10 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        use: [{
-          loader: "style-loader"
-        }, {
-          loader: "css-loader?minify=true"
-        }, {
-          loader: "sass-loader"
-        }],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader?minimize=true', 'sass-loader'],
+        }),
       }
     ],
   },
@@ -39,15 +39,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Chemist.li',
       minify: {
-        removeAttributeQuotes: true,
         collapseWhitespace: true,
         useShortDoctype: true,
       },
+      inlineSource: /\.css$/,
     }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'async',
+    }),
+    new HtmlWebpackInlineSourcePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       }
     }),
+    new ExtractTextPlugin("styles.css"),
   ],
 };
