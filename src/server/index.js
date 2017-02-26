@@ -1,6 +1,6 @@
-const express = require('express');
-const helmet = require('helmet');
-const fs = require('fs');
+import express from 'express';
+import helmet from 'helmet';
+import fs from 'fs';
 import render from 'preact-render-to-string';
 import { h } from 'preact';
 import App from '../app/components/app.js';
