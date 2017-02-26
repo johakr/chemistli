@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['babel-polyfill', 'whatwg-fetch', './src/index.js', './scss/index.scss'],
+  entry: ['./src/polyfill.js', './src/index.js', './scss/index.scss'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
