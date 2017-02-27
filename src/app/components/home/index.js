@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
 import Element from './element';
+import error from '../../utils/error';
 
 export default class Home extends Component {
   load = (word) => {
@@ -61,7 +62,7 @@ export default class Home extends Component {
 
         <div id="elements">
           { submitted && success && elements.map(e => <Element {...e} />) }
-          { submitted && success === false && <div class="not-found">\(^Д^)/</div>}
+          { submitted && success === false && <div class="not-found">{error()}</div>}
         </div>
 
       </div>
