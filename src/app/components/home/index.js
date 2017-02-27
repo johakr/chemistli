@@ -16,7 +16,7 @@ export default class Home extends Component {
           return Promise.reject(json);
         }
       }).catch((ex) => {
-        this.setState({ success: false });
+        this.setState({ success: false, errorMessage: error() });
       });
   };
 
@@ -34,6 +34,7 @@ export default class Home extends Component {
     elements: [],
     submited: false,
     success: null,
+    errorMessage: '',
   };
 
   componentWillMount() {
@@ -49,7 +50,7 @@ export default class Home extends Component {
   }
 
 	render() {
-    const { elements, submitted, success, phrase } = this.state;
+    const { elements, errorMessage, phrase, submitted, success } = this.state;
 
 		return (
       <div class="container">
@@ -62,7 +63,7 @@ export default class Home extends Component {
 
         <div id="elements">
           { submitted && success && elements.map(e => <Element {...e} />) }
-          { submitted && success === false && <div class="not-found">{error()}</div>}
+          { submitted && success === false && <div class="not-found">{errorMessage}</div>}
         </div>
 
       </div>
