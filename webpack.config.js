@@ -6,10 +6,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/app/index.js', './scss/index.scss'],
+  entry: {
+    bundle: ['./src/app/index.js', './scss/index.scss'],
+    sw: ['./src/serviceworker/index.js'],
+  },
   output: {
     path: './public',
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/',
   },
   module: {
@@ -31,6 +34,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Chemist.li',
+      template: 'src/index.ejs',
       minify: {
         collapseWhitespace: true,
         useShortDoctype: true,

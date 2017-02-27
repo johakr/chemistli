@@ -1,0 +1,9 @@
+{
+  "name": "Chemist.li",
+  "short_name": "Chemist.li",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#9b4dca",
+  "theme_color": "#9b4dca"
+}
