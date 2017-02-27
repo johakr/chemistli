@@ -38,7 +38,6 @@ module.exports = {
       template: 'src/index.ejs',
       minify: {
         collapseWhitespace: true,
-        useShortDoctype: true,
       },
       inlineSource: /\.css$/,
       excludeChunks: ['polyfills', 'sw'],
@@ -47,11 +46,6 @@ module.exports = {
       defaultAttribute: 'async',
     }),
     new HtmlWebpackInlineSourcePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
     new ExtractTextPlugin("styles.css"),
   ],
 };

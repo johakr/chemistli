@@ -5,7 +5,7 @@
   "main": "dist/server/index.js",
   "scripts": {
     "start": "npm run build && node ./dist/server/index.js",
-    "build": "concurrently \"node ./node_modules/webpack/bin/webpack\" && babel ./src -d ./dist",
+    "build": "node ./node_modules/webpack/bin/webpack -p && babel ./src -d ./dist",
     "dev-server": "nodemon --watch ./src --exec \"babel-node ./src/server/index.js\"",
     "dev": "concurrently \"npm run dev-server\" \"webpack --watch\" "
   },
