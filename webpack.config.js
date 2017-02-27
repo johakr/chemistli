@@ -8,6 +8,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 module.exports = {
   entry: {
     bundle: ['./src/app/index.js', './scss/index.scss'],
+    polyfills: ['./src/app/utils/polyfill'],
     sw: ['./src/serviceworker/index.js'],
   },
   output: {
@@ -40,6 +41,7 @@ module.exports = {
         useShortDoctype: true,
       },
       inlineSource: /\.css$/,
+      excludeChunks: ['polyfills', 'sw'],
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async',

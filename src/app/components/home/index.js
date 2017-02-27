@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
-import fetch from 'isomorphic-fetch';
 import Element from './element';
 
 export default class Home extends Component {

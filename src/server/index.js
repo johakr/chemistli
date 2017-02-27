@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import fs from 'fs';
 import render from 'preact-render-to-string';
 import { h } from 'preact';
+import 'isomorphic-fetch';
 import App from '../app/components/app.js';
 import { chemistBacktrack } from './utils.js';
 

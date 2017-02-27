@@ -1,6 +1,10 @@
+import loadScript from './utils/loadScript';
 import { h, render } from 'preact';
 import App from './components/app';
-import 'es6-promise/auto';
+
+if (!('Promise' in window || 'fetch' in window)) {
+  loadScript('/polyfills.js');
+}
 
 window.addEventListener('load', () => {
   if ('serviceWorker' in navigator) {
