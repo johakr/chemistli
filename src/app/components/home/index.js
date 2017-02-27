@@ -54,7 +54,7 @@ export default class Home extends Component {
       <div class="container">
         <form onSubmit={this.submit}>
           <fieldset>
-            <input type="text" placeholder="cute" id="phrase" value={phrase} onInput={this.linkState('phrase')} />
+            <input aria-label="Phrase" type="text" autofocus placeholder="cute" id="phrase" value={phrase} onInput={this.linkState('phrase')} />
             <button type="submit" class="button-primary">Sag es mit Chemie!</button>
           </fieldset>
         </form>
