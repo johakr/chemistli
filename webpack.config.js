@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const glob = require('glob');
+const PurifyCSSPlugin = require('purifycss-webpack');
 
 module.exports = {
   entry: {
@@ -33,6 +35,13 @@ module.exports = {
     ],
   },
   plugins: [
+    new ExtractTextPlugin('[name].css'),
+    new PurifyCSSPlugin({
+      paths: [...glob.sync(path.join(__dirname, 'src/app/**/*.js')), ...glob.sync(path.join(__dirname, 'scss/**/*.scss'))],
+      purifyOptions: {
+        minify: true,
+      }
+    }),
     new HtmlWebpackPlugin({
       title: 'Chemist.li',
       template: 'src/index.ejs',
@@ -46,6 +55,5 @@ module.exports = {
       defaultAttribute: 'async',
     }),
     new HtmlWebpackInlineSourcePlugin(),
-    new ExtractTextPlugin("styles.css"),
   ],
 };
