@@ -14,7 +14,7 @@ module.exports = {
     sw: ['./src/serviceworker/index.js'],
   },
   output: {
-    path: './public',
+    path: __dirname + './public',
     filename: '[name].js',
     publicPath: '/',
   },

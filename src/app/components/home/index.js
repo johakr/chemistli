@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
+import linkState from 'linkstate';
 import Element from './element';
 import error from '../../utils/error';
 
@@ -56,7 +57,7 @@ export default class Home extends Component {
       <div class="container">
         <form onSubmit={this.submit}>
           <fieldset>
-            <input aria-label="Phrase" type="text" autofocus placeholder="cute" id="phrase" value={phrase} onInput={this.linkState('phrase')} />
+            <input aria-label="Phrase" type="text" autofocus placeholder="cute" id="phrase" value={phrase} onInput={linkState(this, 'phrase')} />
             <button type="submit" class="button-primary">Sag es mit Chemie!</button>
           </fieldset>
         </form>

@@ -4,5 +4,5 @@
       "pragma": "h"
     }]
   ],
-  "presets": ["latest", "stage-0"]
+  "presets": ["env", "stage-0"]
 }
