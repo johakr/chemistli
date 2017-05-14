@@ -34,7 +34,7 @@ self.addEventListener('fetch', (ev) => {
       }
 
       return res;
-    }).catch(e => {
+    }).catch((err) => {
       if(ev.request.url.includes('/q/')) {
         return caches.match('/');
       }
