@@ -15,25 +15,25 @@ const app = express();
 app.use(helmet());
 
 app.get('/c/:word', (req, res) => {
-	const solution = chemistBacktrack(req.params.word);
+  const solution = chemistBacktrack(req.params.word);
 
-	return res.json(solution);
+  return res.json(solution);
 });
 
 app.get('/', (req, res) => {
-	const html = render(<App />);
+  const html = render(<App />);
 
-	res.send(`${template[0]}${html}${template[1]}`);
+  res.send(`${template[0]}${html}${template[1]}`);
 });
 
 app.get('/q/:phrase', (req, res) => {
-	const html = render(<App url={`/q/${req.params.phrase}`} />);
+  const html = render(<App url={`/q/${req.params.phrase}`} />);
 
-	res.send(`${template[0]}${html}${template[1]}`);
+  res.send(`${template[0]}${html}${template[1]}`);
 });
 
 app.use(express.static('./public'));
 
 app.listen(3006, () => {
-	console.log('Chemistli listening on port 3006!');
+  console.log('Chemistli listening on port 3006!');
 });
