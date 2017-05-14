@@ -7,6 +7,8 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
 
+console.log(__dirname);
+
 module.exports = {
   entry: {
     bundle: ['./src/app/index.js', './scss/index.scss'],
@@ -14,7 +16,7 @@ module.exports = {
     sw: ['./src/serviceworker/index.js'],
   },
   output: {
-    path: __dirname + './public',
+    path: path.join(__dirname, 'public'),
     filename: '[name].js',
     publicPath: '/',
   },
@@ -31,16 +33,19 @@ module.exports = {
           fallback: 'style-loader',
           use: ['css-loader?minimize=true', 'sass-loader'],
         }),
-      }
+      },
     ],
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
     new PurifyCSSPlugin({
-      paths: [...glob.sync(path.join(__dirname, 'src/app/**/*.js')), ...glob.sync(path.join(__dirname, 'scss/**/*.scss'))],
+      paths: [
+        ...glob.sync(path.join(__dirname, 'src/app/**/*.js')),
+        ...glob.sync(path.join(__dirname, 'scss/**/*.scss')),
+      ],
       purifyOptions: {
         minify: true,
-      }
+      },
     }),
     new HtmlWebpackPlugin({
       title: 'Chemist.li',
