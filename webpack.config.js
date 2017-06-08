@@ -7,8 +7,6 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
 
-console.log(__dirname);
-
 module.exports = {
   entry: {
     bundle: ['./src/app/index.js', './scss/index.scss'],
