@@ -1,8 +1,0 @@
-{
-  "plugins": [
-    ["transform-react-jsx", {
-      "pragma": "h"
-    }]
-  ],
-  "presets": ["env", "stage-0"]
-}

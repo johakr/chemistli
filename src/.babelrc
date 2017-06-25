@@ -1,0 +1,19 @@
+{
+  "env": {
+    "server": {
+      "plugins": [
+        ["transform-react-jsx", {
+          "pragma": "h"
+        }]
+      ],
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": "current"
+          }
+        }],
+        "stage-0"
+      ]
+    }
+  }
+}

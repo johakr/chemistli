@@ -5,9 +5,9 @@
   "main": "dist/server/index.js",
   "scripts": {
     "start": "npm run build && node ./dist/server/index.js",
-    "build": "node ./node_modules/webpack/bin/webpack -p && babel ./src -d ./dist",
-    "dev-server": "nodemon --watch ./src --exec \"babel-node ./src/server/index.js\"",
-    "dev": "concurrently \"npm run dev-server\" \"webpack --watch\" ",
+    "build": "node ./node_modules/webpack/bin/webpack --config webpack.prod.js && cross-env NODE_ENV=server babel ./src -d ./dist",
+    "dev-server": "nodemon --watch ./src --exec \"cross-env NODE_ENV=server babel-node ./src/server/index.js\"",
+    "dev": "concurrently \"npm run dev-server\" \"webpack --watch --config webpack.common.js\" ",
     "precommit": "lint-staged",
     "prettify": "prettier --single-quote --trailing-comma all --write \"src/**/*.js\""
   },
@@ -41,14 +41,17 @@
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-react-jsx": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
+    "babili": "^0.1.4",
+    "babili-webpack-plugin": "^0.1.1",
     "concurrently": "^3.3.0",
+    "cross-env": "^5.0.1",
     "css-loader": "^0.28.0",
-    "eslint": "^3.19.0",
+    "eslint": "^4.1.0",
     "extract-text-webpack-plugin": "^2.0.0",
     "html-webpack-inline-source-plugin": "^0.0.9",
     "html-webpack-plugin": "^2.28.0",
-    "husky": "^0.13.3",
-    "lint-staged": "^3.4.1",
+    "husky": "^0.14.1",
+    "lint-staged": "^4.0.0",
     "node-babel": "^0.1.2",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
@@ -58,6 +61,7 @@
     "sass-loader": "^6.0.2",
     "script-ext-html-webpack-plugin": "^1.7.1",
     "style-loader": "^0.18.2",
-    "webpack": "^2.2.1"
+    "webpack": "^3.0.0",
+    "webpack-merge": "^4.1.0"
   }
 }
