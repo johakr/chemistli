@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const BabiliPlugin = require('babili-webpack-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 const Merge = require('webpack-merge');
 const CommonConfig = require('./webpack.common.js');
 
@@ -15,6 +15,6 @@ module.exports = Merge(CommonConfig, {
       },
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new BabiliPlugin(),
+    new MinifyPlugin(),
   ],
 });
