@@ -51,7 +51,7 @@
     "html-webpack-inline-source-plugin": "^0.0.9",
     "html-webpack-plugin": "^2.28.0",
     "husky": "^0.14.1",
-    "lint-staged": "^5.0.0",
+    "lint-staged": "^6.0.0",
     "node-babel": "^0.1.2",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
