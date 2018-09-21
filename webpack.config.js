@@ -28,13 +28,14 @@ module.exports = {
           options: {
             plugins: [
               [
-                'transform-react-jsx',
+                '@babel/transform-react-jsx',
                 {
                   pragma: 'h',
                 },
               ],
+              '@babel/plugin-proposal-class-properties',
             ],
-            presets: [['env', { modules: false }], 'stage-0'],
+            presets: [['@babel/env', { modules: false }]],
           },
         },
       },

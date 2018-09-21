@@ -2,17 +2,17 @@
   "env": {
     "server": {
       "plugins": [
-        ["transform-react-jsx", {
+        ["@babel/transform-react-jsx", {
           "pragma": "h"
-        }]
+        }],
+        "@babel/plugin-proposal-class-properties"
       ],
       "presets": [
-        ["env", {
+        ["@babel/env", {
           "targets": {
             "node": "current"
           }
-        }],
-        "stage-0"
+        }]
       ]
     }
   }
