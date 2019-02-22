@@ -2,7 +2,7 @@
 
 > Are you made of Copper and Tellurium? Cause you're CuTe.
 
-https://www.chemist.li/q/cute
+https://chemist.li/q/cute
 
 Demo App to showcase how to build a modern progressive web app (PWA) with universal rendering and beat the following metrics:
 * Google PageSpeed Insights Score: **100 / 100**
