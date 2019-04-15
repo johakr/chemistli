@@ -1,5 +1,5 @@
 import loadScript from './utils/loadScript';
-import { h, render } from 'preact';
+import { h, hydrate } from 'preact';
 import App from './components/app';
 
 if (!('Promise' in window || 'fetch' in window)) {
@@ -11,5 +11,5 @@ window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js');
   }
 
-  render(<App />, document.body, document.getElementById('app'));
+  hydrate(<App />, document.body, document.getElementById('app'));
 });

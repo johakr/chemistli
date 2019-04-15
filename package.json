@@ -2,61 +2,63 @@
   "name": "chemistli",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server/index.js",
   "scripts": {
     "start": "npm run build && node ./dist/server/index.js",
     "build": "webpack -p && cross-env NODE_ENV=server babel ./src -d ./dist",
     "dev-server": "nodemon --watch ./src --exec \"cross-env NODE_ENV=server babel-node ./src/server/index.js\"",
     "dev": "concurrently \"npm run dev-server\" \"webpack --watch -d\" ",
-    "precommit": "lint-staged",
     "prettify": "prettier --single-quote --trailing-comma all --write \"src/**/*.js\""
   },
   "author": "Johannes Kronmüller (https://johakr.me)",
   "license": "SEE LICENSE IN LICENSE",
   "repository": "github:johakr/chemistli",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.js": [
-      "prettier --single-quote --trailing-comma all --write",
+    "*.{js,css,json,md}": [
+      "prettier --write",
       "git add"
     ]
   },
   "dependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.4.3",
     "es6-promise": "^4.0.5",
     "express": "^4.14.1",
-    "helmet": "^3.4.1",
+    "helmet": "^3.16.0",
     "isomorphic-fetch": "^2.2.1",
     "linkstate": "^1.0.1",
     "milligram": "^1.3.0",
-    "preact": "^8.1.0",
+    "preact": "^10.0.0-alpha.4",
     "preact-render-to-string": "^4.0.0",
-    "preact-router": "^2.4.1"
+    "preact-router": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
+    "@babel/cli": "^7.4.3",
     "@babel/node": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-transform-react-jsx": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.0",
     "concurrently": "^4.0.0",
     "cross-env": "^5.0.1",
-    "css-loader": "^2.1.0",
-    "eslint": "^5.0.0",
+    "css-loader": "^2.1.1",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.3.1",
-    "lint-staged": "^8.1.4",
-    "mini-css-extract-plugin": "^0.5.0",
+    "lint-staged": "^8.1.5",
+    "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.5.0",
-    "nodemon": "^1.11.0",
-    "prettier": "^1.13.7",
+    "nodemon": "^1.18.11",
+    "prettier": "^1.17.0",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
     "sass-loader": "^7.0.0",
     "script-ext-html-webpack-plugin": "^2.0.1",
     "style-loader": "^0.23.0",
-    "webpack": "^4.14.0",
-    "webpack-cli": "^3.0.0"
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0"
   }
 }
