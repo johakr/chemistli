@@ -1,0 +1,28 @@
+{
+  "plugins": [
+    [
+      "@babel/transform-react-jsx",
+      {
+        "pragma": "h"
+      }
+    ],
+    "@babel/plugin-proposal-class-properties"
+  ],
+  "env": {
+    "node": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    },
+    "browser": {
+      "presets": [["@babel/env", { "modules": false }]]
+    }
+  }
+}
