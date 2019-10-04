@@ -11,3 +11,4 @@ Demo App to showcase how to build a modern progressive web app (PWA) with univer
 - Total Page Load Size: **< 10kb (gzipped)**
 
 ## Docker
+`docker pull docker.pkg.github.com/johakr/chemistli/chemistli:latest`
