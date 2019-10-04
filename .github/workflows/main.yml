@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Clean install dependencies and build
+      - name: build and push docker image
         run: |
-          ls
           docker build -t docker.pkg.github.com/johakr/chemistli/chemistli:latest .
+          docker push docker.pkg.github.com/johakr/chemistli/chemistli:latest
