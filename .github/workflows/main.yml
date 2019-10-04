@@ -1,4 +1,4 @@
-name: CI
+name: Docker
 
 on:
   push:
@@ -9,7 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Clean install dependencies and build
+      - uses: actions/checkout@v1
+      - name: Build and push docker image
         run: |
-          npm ci
-          npm run build
+          echo "${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}" | docker login docker.pkg.github.com --username johakr --password-stdin
+          docker build -t docker.pkg.github.com/johakr/chemistli/chemistli:latest .
+          docker push docker.pkg.github.com/johakr/chemistli/chemistli:latest
