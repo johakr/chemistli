@@ -11,5 +11,4 @@ jobs:
     steps:
       - name: Clean install dependencies and build
         run: |
-          npm ci
-          npm run build
+          docker build -t johakr/chemistli .
