@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npm run build && node ./dist/server/index.js",
+    "start": "node ./dist/server/index.js",
     "build": "cross-env BABEL_ENV=browser webpack -p && cross-env BABEL_ENV=node babel ./src -d ./dist",
     "dev-server": "nodemon --watch ./src --exec \"cross-env BABEL_ENV=node babel-node ./src/server/index.js\"",
-    "dev": "concurrently \"npm run dev-server\" \"cross-env BABEL_ENV=browser webpack --watch -d\" ",
-    "prettify": "prettier --single-quote --trailing-comma all --write \"src/**/*.js\""
+    "dev": "concurrently \"npm run dev-server\" \"cross-env BABEL_ENV=browser webpack --watch -d\""
   },
   "author": "Johannes Kronmüller (https://johakr.me)",
   "license": "SEE LICENSE IN LICENSE",

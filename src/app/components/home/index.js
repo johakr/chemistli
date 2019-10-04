@@ -75,11 +75,10 @@ export default class Home extends Component {
 
         <div id="elements">
           {submitted && success && elements.map(e => <Element {...e} />)}
-          {submitted &&
-            success === false &&
-            <div class="not-found">{errorMessage}</div>}
+          {submitted && success === false && (
+            <div class="not-found">{errorMessage}</div>
+          )}
         </div>
-
       </div>
     );
   }

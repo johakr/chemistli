@@ -24,7 +24,9 @@ const chemistBacktrack = word => {
         const element = elements.find(
           e =>
             e.symbol.toLowerCase() ===
-            `${word[current.letters]}${word[current.letters + 1]}`.toLowerCase(),
+            `${word[current.letters]}${
+              word[current.letters + 1]
+            }`.toLowerCase(),
         );
         if (element)
           current.next.push({
