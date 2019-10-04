@@ -1,4 +1,4 @@
-name: CI
+name: Docker
 
 on:
   push:
@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: build and push docker image
+      - name: Build and push docker image
         run: |
-          docker login docker.pkg.github.com -u johakr -p ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
+          docker login docker.pkg.github.com -u johakr -p 
+          echo "${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}" | login docker.pkg.github.com --username johakr --password-stdin
           docker build -t docker.pkg.github.com/johakr/chemistli/chemistli:latest .
           docker push docker.pkg.github.com/johakr/chemistli/chemistli:latest
