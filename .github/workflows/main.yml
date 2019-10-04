@@ -13,4 +13,4 @@ jobs:
       - name: Clean install dependencies and build
         run: |
           ls
-          docker build -t johakr/chemistli .
+          docker build -t docker.pkg.github.com/johakr/chemistli/chemistli:latest .
