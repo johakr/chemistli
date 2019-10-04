@@ -1,5 +1,0 @@
-apps:
-  - script : dist/server/index.js
-    name : chemistli
-    env :
-      NODE_ENV: production
