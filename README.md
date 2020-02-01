@@ -1,5 +1,7 @@
 # chemistli
 
+![Docker](https://github.com/johakr/chemistli/workflows/Docker/badge.svg)
+
 > Are you made of Copper and Tellurium? Cause you're CuTe.
 
 https://chemist.li/q/cute
