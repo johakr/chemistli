@@ -1,6 +1,6 @@
 import elements from './elements';
 
-const chemistBacktrack = word => {
+const chemistBacktrack = (word) => {
   let current = { element: null, letters: 0, prev: null, next: [] };
 
   while (true) {
@@ -22,7 +22,7 @@ const chemistBacktrack = word => {
     if (current.next.length === 0) {
       if (current.letters < word.length - 1) {
         const element = elements.find(
-          e =>
+          (e) =>
             e.symbol.toLowerCase() ===
             `${word[current.letters]}${
               word[current.letters + 1]
@@ -40,7 +40,7 @@ const chemistBacktrack = word => {
 
       if (current.letters < word.length) {
         const element = elements.find(
-          e => e.symbol.toLowerCase() === word[current.letters].toLowerCase(),
+          (e) => e.symbol.toLowerCase() === word[current.letters].toLowerCase(),
         );
         if (element)
           current.next.push({
@@ -54,7 +54,7 @@ const chemistBacktrack = word => {
     }
 
     // select next possible step
-    const next = current.next.find(n => !n.visited);
+    const next = current.next.find((n) => !n.visited);
 
     // go to next step
     if (next) {

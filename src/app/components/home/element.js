@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 
-const Element = props => (
+const Element = (props) => (
   <div class="element">
     <div class="no">{props.no}</div>
     <div class="symbol">{props.symbol}</div>

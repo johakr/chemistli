@@ -5,24 +5,24 @@ import Element from './element';
 import error from '../../utils/error';
 
 export default class Home extends Component {
-  load = word => {
+  load = (word) => {
     this.setState({ submitted: true, success: null });
 
     return fetch(`/c/${word}`)
-      .then(res => res.json())
-      .then(json => {
+      .then((res) => res.json())
+      .then((json) => {
         if (json.success) {
           this.setState({ elements: json.elements, success: true });
         } else {
           return Promise.reject(json);
         }
       })
-      .catch(ex => {
+      .catch((ex) => {
         this.setState({ success: false, errorMessage: error() });
       });
   };
 
-  submit = e => {
+  submit = (e) => {
     e.preventDefault();
 
     if (this.state.phrase.length) {
@@ -74,7 +74,7 @@ export default class Home extends Component {
         </form>
 
         <div id="elements">
-          {submitted && success && elements.map(e => <Element {...e} />)}
+          {submitted && success && elements.map((e) => <Element {...e} />)}
           {submitted && success === false && (
             <div class="not-found">{errorMessage}</div>
           )}
