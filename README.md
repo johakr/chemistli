@@ -1,4 +1,4 @@
-![Docker](https://github.com/johakr/chemistli/workflows/Docker/badge.svg)
+[![Docker](https://github.com/johakr/chemistli/workflows/Docker/badge.svg)](https://github.com/johakr/chemistli/actions)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 # chemistli
