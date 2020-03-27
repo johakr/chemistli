@@ -1,7 +1,6 @@
 const glob = require('glob');
 const path = require('path');
 
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
@@ -67,6 +66,5 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async',
     }),
-    new HtmlWebpackInlineSourcePlugin(),
   ],
 };
