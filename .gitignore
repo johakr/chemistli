@@ -6,7 +6,11 @@ node_modules
 
 dist/*
 public/*.js
+*.br
+*.gz
 public/*.html
 public/*.css
 
 !.gitkeep
+
+.vscode

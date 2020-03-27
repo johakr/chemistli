@@ -1,4 +1,5 @@
 import express from 'express';
+import expressStaticGzip from 'express-static-gzip';
 import helmet from 'helmet';
 import fs from 'fs';
 import render from 'preact-render-to-string';
@@ -32,7 +33,13 @@ app.get('/q/:phrase', (req, res) => {
   res.send(`${template[0]}${html}${template[1]}`);
 });
 
-app.use(express.static('./public'));
+app.use(
+  '/',
+  expressStaticGzip('./public', {
+    enableBrotli: true,
+    orderPreference: ['br'],
+  }),
+);
 
 app.listen(3006, () => {
   console.log('Chemistli listening on port 3006!');
