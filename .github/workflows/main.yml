@@ -9,9 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      
+      - name: Docker Login
+        uses: azure/docker-login@v1
+        with:
+          login-server: docker.pkg.github.com
+          username: $GITHUB_ACTOR
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
       - name: Build and push docker image
         run: |
-          echo "${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}" | docker login docker.pkg.github.com --username johakr --password-stdin
           docker build -t docker.pkg.github.com/johakr/chemistli/chemistli:latest .
           docker push docker.pkg.github.com/johakr/chemistli/chemistli:latest
