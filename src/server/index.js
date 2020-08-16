@@ -13,7 +13,11 @@ template[0] = `${template[0]}<body>`;
 
 const app = express();
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  }),
+);
 
 app.get('/c/:word', (req, res) => {
   const solution = chemistBacktrack(req.params.word);
