@@ -68,11 +68,11 @@ module.exports = {
       defaultAttribute: 'async',
     }),
     new CompressionPlugin({
-      filename: '[path].gz[query]',
+      filename: '[path][base].gz[query]',
       algorithm: 'gzip',
     }),
     new CompressionPlugin({
-      filename: '[path].br[query]',
+      filename: '[path][base].br[query]',
       algorithm: 'brotliCompress',
     }),
   ],
