@@ -1,10 +1,10 @@
-const glob = require('glob');
+const glob = require('glob-all');
 const path = require('path');
 
 const CompressionPlugin = require('compression-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack');
+const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
@@ -46,14 +46,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    new PurifyCSSPlugin({
-      paths: [
-        ...glob.sync(path.join(__dirname, 'src/app/**/*.js')),
-        ...glob.sync(path.join(__dirname, 'scss/**/*.scss')),
-      ],
-      purifyOptions: {
-        minify: true,
-      },
+    new PurgeCSSPlugin({
+      paths: glob.sync([
+        path.join(__dirname, 'src/app/**/*.js'),
+        path.join(__dirname, 'scss/**/*.scss'),
+        path.join(__dirname, 'src/**/*.ejs'),
+      ]),
     }),
     new HtmlWebpackPlugin({
       title: 'Chemist.li',
