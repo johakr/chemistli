@@ -8,6 +8,7 @@
     ],
     "@babel/plugin-proposal-class-properties"
   ],
+  "presets": ["@babel/env"],
   "env": {
     "node": {
       "presets": [

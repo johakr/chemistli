@@ -6,16 +6,12 @@
     "start": "node ./dist/server/index.js",
     "build": "cross-env BABEL_ENV=browser webpack --mode=production && cross-env BABEL_ENV=node babel ./src -d ./dist",
     "dev-server": "nodemon --watch ./src --exec \"cross-env BABEL_ENV=node babel-node ./src/server/index.js\"",
-    "dev": "concurrently \"npm run dev-server\" \"cross-env BABEL_ENV=browser webpack --mode=development --watch\""
+    "dev": "concurrently \"npm run dev-server\" \"cross-env BABEL_ENV=browser webpack --mode=development --watch\"",
+    "prepare": "husky install"
   },
   "author": "Johannes Kronmüller (https://johakr.me)",
   "license": "SEE LICENSE IN LICENSE",
   "repository": "github:johakr/chemistli",
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "dependencies": {
     "@babel/core": "^7.12.3",
     "es6-promise": "^4.2.8",
@@ -23,7 +19,7 @@
     "express-static-gzip": "^2.1.0",
     "helmet": "^4.2.0",
     "isomorphic-fetch": "^3.0.0",
-    "linkstate": "^1.1.1",
+    "linkstate": "^2.0.1",
     "milligram": "^1.4.1",
     "preact": "^10.5.7",
     "preact-render-to-string": "^5.1.11",
@@ -36,22 +32,22 @@
     "@babel/plugin-transform-react-jsx": "^7.12.5",
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.2.1",
-    "compression-webpack-plugin": "^6.1.1",
-    "concurrently": "^5.3.0",
+    "compression-webpack-plugin": "^9.0.0",
+    "concurrently": "^6.4.0",
     "cross-env": "^7.0.2",
-    "css-loader": "^5.0.1",
+    "css-loader": "^6.5.1",
     "glob-all": "^3.2.1",
-    "html-webpack-plugin": "^4.5.0",
-    "husky": "^4.3.0",
-    "mini-css-extract-plugin": "^1.3.1",
+    "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.0",
+    "mini-css-extract-plugin": "^2.4.4",
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
-    "purgecss-webpack-plugin": "^3.0.0",
+    "purgecss-webpack-plugin": "^4.0.3",
     "sass": "^1.29.0",
-    "sass-loader": "^10.1.0",
+    "sass-loader": "^12.3.0",
     "script-ext-html-webpack-plugin": "^2.1.5",
-    "style-loader": "^2.0.0",
+    "style-loader": "^3.3.1",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0"
   }

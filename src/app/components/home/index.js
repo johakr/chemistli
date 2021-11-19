@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
-import linkState from 'linkstate';
+import linkState from 'linkstate/dist/linkstate.js';
 import Element from './element';
 import error from '../../utils/error';
 
@@ -17,7 +17,7 @@ export default class Home extends Component {
           return Promise.reject(json);
         }
       })
-      .catch((ex) => {
+      .catch(() => {
         this.setState({ success: false, errorMessage: error() });
       });
   };
