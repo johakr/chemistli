@@ -15,7 +15,7 @@
   "dependencies": {
     "@babel/core": "^7.12.3",
     "es6-promise": "^4.2.8",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-static-gzip": "^2.1.0",
     "helmet": "^4.2.0",
     "isomorphic-fetch": "^3.0.0",
